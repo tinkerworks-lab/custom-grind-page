@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>カスタムグラインド専用ページ｜CLASSICAL COFFEE ROASTER</title>
+  <meta name="description" content="お使いのコーヒーマシンから最適な挽き具合を確認できる、カスタムグラインド案内ページです。">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <div class="brand">
+        <span class="brand-mark">CCR</span>
+        <div>
+          <strong>CLASSICAL COFFEE ROASTER</strong>
+          <small>クラシカル コーヒー ロースター</small>
+        </div>
+      </div>
+      <nav aria-label="メインナビゲーション">
+        <a href="#machine">マシンから選ぶ</a>
+        <a href="#grind">挽き具合一覧</a>
+        <a href="#price">料金</a>
+        <a href="#faq">よくあるご質問</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <img src="assets/hero-custom-grind.png" alt="" class="hero-image">
+      <div class="hero-overlay"></div>
+      <div class="wrap hero-content">
+        <div class="hero-copy">
+          <p class="eyebrow">CUSTOM GRIND SERVICE</p>
+          <h1 id="hero-title">カスタムグラインド専用ページ</h1>
+          <p>お客様の器具やお好みに合わせて、最適な挽き具合に調整します。</p>
+          <div class="hero-note">
+            <span>豆のまま・中挽きは追加料金なし</span>
+            <span>その他の挽き具合はカスタム料金</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="notice">
+      <div class="wrap notice-grid">
+        <strong>ご注文前にご確認ください</strong>
+        <ul>
+          <li>挽き直し・変更はできません。</li>
+          <li>挽き具合の指定間違いによる返品・交換はお受けできません。</li>
+          <li>迷われる場合は「豆のまま」がおすすめです。</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="machine" class="section">
+      <div class="wrap">
+        <div class="section-heading">
+          <span class="step">STEP 1</span>
+          <div>
+            <h2>お使いのコーヒーマシンを選択してください</h2>
+            <p>選択すると、おすすめの挽き具合が自動で表示されます。</p>
+          </div>
+        </div>
+
+        <div class="machine-grid" id="machineGrid">
+          <button class="machine-card is-active" data-machine="paper" aria-pressed="true">
+            <img src="assets/paper-drip.png" alt="">
+            <span>ペーパードリップ</span>
+          </button>
+          <button class="machine-card" data-machine="maker" aria-pressed="false">
+            <img src="assets/coffee-maker.png" alt="">
+            <span>コーヒーメーカー</span>
+          </button>
+          <button class="machine-card" data-machine="press" aria-pressed="false">
+            <img src="assets/french-press.png" alt="">
+            <span>フレンチプレス</span>
+          </button>
+          <button class="machine-card" data-machine="siphon" aria-pressed="false">
+            <img src="assets/siphon.png" alt="">
+            <span>サイフォン</span>
+          </button>
+          <button class="machine-card" data-machine="coldbrew" aria-pressed="false">
+            <img src="assets/cold-brew.png" alt="">
+            <span>水出し</span>
+          </button>
+          <button class="machine-card" data-machine="semiauto" aria-pressed="false">
+            <img src="assets/semi-auto.png" alt="">
+            <span>セミオート<br>エスプレッソ</span>
+          </button>
+          <button class="machine-card" data-machine="fullauto" aria-pressed="false">
+            <img src="assets/full-auto.png" alt="">
+            <span>全自動<br>エスプレッソ</span>
+          </button>
+          <button class="machine-card" data-machine="moka" aria-pressed="false">
+            <img src="assets/moka-pot.png" alt="">
+            <span>マキネッタ</span>
+          </button>
+        </div>
+
+        <article class="recommendation" id="recommendation" aria-live="polite">
+          <div class="recommend-badge">おすすめの挽き具合</div>
+          <div class="recommend-main">
+            <div>
+              <h3 id="recommendName">中挽き</h3>
+              <p id="recommendEn">Medium</p>
+            </div>
+            <img id="recommendImage" src="assets/medium.png" alt="中挽きのコーヒー粉">
+          </div>
+          <div class="recommend-copy">
+            <p id="recommendText">バランスの良い味わいで、ペーパードリップに適しています。</p>
+            <p class="machine-label">選択中：<strong id="selectedMachine">ペーパードリップ</strong></p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="grind" class="section section-soft">
+      <div class="wrap">
+        <div class="section-heading">
+          <span class="step">STEP 2</span>
+          <div>
+            <h2>挽き具合を確認してください</h2>
+            <p>粗いものから細かいものへ並んでいます。</p>
+          </div>
+        </div>
+
+        <div class="grind-scale" aria-hidden="true">
+          <span>粗い</span><i></i><span>細かい</span>
+        </div>
+
+        <div class="grind-grid">
+          <article class="grind-card" data-grind="mediumCoarse">
+            <h3>中粗挽き</h3><small>Medium Coarse</small>
+            <img src="assets/medium-coarse.png" alt="中粗挽き">
+            <p>たっぷりのお湯で、ゆっくり抽出する器具向け。</p>
+            <b>フレンチプレス・金属フィルター</b>
+          </article>
+          <article class="grind-card is-standard" data-grind="medium">
+            <span class="label">標準・無料</span>
+            <h3>中挽き</h3><small>Medium</small>
+            <img src="assets/medium.png" alt="中挽き">
+            <p>バランスが良く、最も使いやすい標準挽き。</p>
+            <b>ペーパードリップ・コーヒーメーカー</b>
+          </article>
+          <article class="grind-card" data-grind="fine">
+            <h3>細挽き</h3><small>Fine</small>
+            <img src="assets/fine.png" alt="細挽き">
+            <p>しっかりしたコクと濃さを引き出します。</p>
+            <b>ネルドリップ・サイフォン</b>
+          </article>
+          <article class="grind-card" data-grind="extraFine">
+            <h3>極細挽き</h3><small>Extra Fine</small>
+            <img src="assets/extra-fine.png" alt="極細挽き">
+            <p>濃厚な味わいで、エスプレッソに近い抽出向け。</p>
+            <b>全自動マシン・セミオート</b>
+          </article>
+          <article class="grind-card is-paid" data-grind="powder">
+            <span class="label">カスタム・有料</span>
+            <h3>パウダー挽き</h3><small>Espresso Powder</small>
+            <img src="assets/powder.png" alt="パウダー挽き">
+            <p>非常に細かい、エスプレッソ専用の挽き目です。</p>
+            <b>エスプレッソマシン</b>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="price" class="section">
+      <div class="wrap info-grid">
+        <div class="info-card">
+          <h2>カスタムグラインド料金</h2>
+          <p><strong>中粗・細・極細</strong><span>＋¥110（税込）</span></p>
+          <p><strong>パウダー挽き</strong><span>＋¥220（税込）</span></p>
+          <small>※価格はサンプルです。実際の設定価格に合わせて変更してください。</small>
+        </div>
+        <div class="info-card">
+          <h2>ご注文方法</h2>
+          <ol>
+            <li>対象のコーヒー商品を選ぶ</li>
+            <li>商品ページで挽き具合を選択する</li>
+            <li>数量を確認してカートへ追加する</li>
+            <li>注文内容を確認して購入手続きへ</li>
+          </ol>
+        </div>
+        <div class="info-card" id="faq">
+          <h2>よくあるご質問</h2>
+          <details><summary>挽き具合を途中で変更できますか？</summary><p>加工開始後は変更できません。注文確定前にご確認ください。</p></details>
+          <details><summary>どれを選べばよいかわかりません。</summary><p>使用器具を選択すると、上部におすすめが表示されます。</p></details>
+          <details><summary>複数商品を別々の挽き方にできますか？</summary><p>各商品ページで、それぞれ希望する挽き方を選択してください。</p></details>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-soft">
+      <div class="wrap trust-grid">
+        <div><img src="assets/freshness.png" alt=""><h3>鮮度を大切に</h3><p>ご注文後にグラインドします。</p></div>
+        <div><img src="assets/careful-grind.png" alt=""><h3>丁寧なグラインド</h3><p>器具と用途に合わせて調整します。</p></div>
+        <div><img src="assets/support.png" alt=""><h3>安心のサポート</h3><p>挽き具合に迷われたらご相談ください。</p></div>
+        <div><img src="assets/quality.png" alt=""><h3>品質保証</h3><p>不具合やご不明点に対応します。</p></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">© CLASSICAL COFFEE ROASTER</div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

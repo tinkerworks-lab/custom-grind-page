@@ -1,0 +1,87 @@
+
+const recommendations = {
+  paper: {
+    machine: "ペーパードリップ",
+    grind: "中挽き",
+    en: "Medium",
+    image: "assets/medium.png",
+    text: "バランスの良い味わいで、ペーパードリップに適しています。"
+  },
+  maker: {
+    machine: "コーヒーメーカー",
+    grind: "中挽き",
+    en: "Medium",
+    image: "assets/medium.png",
+    text: "安定した抽出がしやすく、一般的な家庭用コーヒーメーカーに適しています。"
+  },
+  press: {
+    machine: "フレンチプレス",
+    grind: "中粗挽き",
+    en: "Medium Coarse",
+    image: "assets/medium-coarse.png",
+    text: "粉がフィルターを通りにくく、コーヒーオイルとコクを楽しみやすい挽き目です。"
+  },
+  siphon: {
+    machine: "サイフォン",
+    grind: "細挽き",
+    en: "Fine",
+    image: "assets/fine.png",
+    text: "香りとコクをしっかり引き出しやすい、サイフォン向けの挽き目です。"
+  },
+  coldbrew: {
+    machine: "水出し",
+    grind: "中粗挽き",
+    en: "Medium Coarse",
+    image: "assets/medium-coarse.png",
+    text: "長時間抽出でも雑味が出にくく、すっきりした水出しコーヒーに向いています。"
+  },
+  semiauto: {
+    machine: "セミオートエスプレッソマシン",
+    grind: "パウダー挽き",
+    en: "Espresso Powder",
+    image: "assets/powder.png",
+    text: "圧力をかけて短時間で抽出するため、非常に細かいパウダー挽きがおすすめです。"
+  },
+  fullauto: {
+    machine: "全自動エスプレッソマシン",
+    grind: "極細挽き",
+    en: "Extra Fine",
+    image: "assets/extra-fine.png",
+    text: "機械内部で安定して抽出しやすい、極細挽きを基本としておすすめします。"
+  },
+  moka: {
+    machine: "マキネッタ",
+    grind: "細挽き",
+    en: "Fine",
+    image: "assets/fine.png",
+    text: "濃厚な味わいを引き出しながら、目詰まりしにくい細挽きがおすすめです。"
+  }
+};
+
+const cards = document.querySelectorAll(".machine-card");
+const nameEl = document.getElementById("recommendName");
+const enEl = document.getElementById("recommendEn");
+const imageEl = document.getElementById("recommendImage");
+const textEl = document.getElementById("recommendText");
+const machineEl = document.getElementById("selectedMachine");
+
+cards.forEach(card => {
+  card.addEventListener("click", () => {
+    cards.forEach(c => {
+      c.classList.remove("is-active");
+      c.setAttribute("aria-pressed", "false");
+    });
+    card.classList.add("is-active");
+    card.setAttribute("aria-pressed", "true");
+
+    const data = recommendations[card.dataset.machine];
+    nameEl.textContent = data.grind;
+    enEl.textContent = data.en;
+    imageEl.src = data.image;
+    imageEl.alt = `${data.grind}のコーヒー粉`;
+    textEl.textContent = data.text;
+    machineEl.textContent = data.machine;
+
+    document.querySelectorAll(".grind-card").forEach(el => el.classList.remove("is-recommended"));
+  });
+});
